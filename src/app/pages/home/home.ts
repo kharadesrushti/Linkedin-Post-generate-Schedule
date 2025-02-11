@@ -41,6 +41,7 @@ import { RouterModule } from '@angular/router';
               <div class="font-semibold text-xl mb-2">{{ panel.title }}</div>
               <label class="block text-lg">{{ panel.count }}</label>
               <p class="m-0 text-sm">{{ panel.description }}</p>
+              <h1>Hellooooooooooooooooo</h1>
             </div>
           </div>
         </div>
