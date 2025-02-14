@@ -4,18 +4,18 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 
 import { LayoutService } from '../../layout/service/layout.service';
-import { AppSidebar } from '../../layout/component/app.sidebar';
+
 import { AppFooter } from '../../layout/component/app.footer';
 import { AppTopbar } from '../../layout/component/app.topbar';
-
+import { HomeAppSidebar } from '../../layout/component/homeapp.sidebar';
 
 @Component({
     selector: 'home-layout',
     standalone: true,
-    imports: [CommonModule, AppTopbar, AppSidebar, RouterModule, AppFooter],
+    imports: [CommonModule, AppTopbar, HomeAppSidebar, RouterModule, AppFooter],
     template: `<div class="layout-wrapper" [ngClass]="containerClass">
         <app-topbar></app-topbar>
-        <app-sidebar></app-sidebar>
+        <home-app-sidebar></home-app-sidebar>
         <div class="layout-main-container">
             <div class="layout-main">
                 <router-outlet></router-outlet>
@@ -30,7 +30,7 @@ export class HomeLayout {
 
     menuOutsideClickListener: any;
 
-    @ViewChild(AppSidebar) appSidebar!: AppSidebar;
+    @ViewChild(HomeAppSidebar) appSidebar!: HomeAppSidebar;
 
     @ViewChild(AppTopbar) appTopBar!: AppTopbar;
 
