@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
+  
 <!-- Sidebar Toggle Button (Mobile View) -->
 <button 
   class="md:hidden fixed top-4 left-4 bg-gray-800 text-white p-2 rounded z-50" 
@@ -16,12 +17,14 @@ import { RouterModule } from '@angular/router';
   ☰
 </button>
 
-<!-- Overlay when sidebar is open -->
-<div 
-  *ngIf="isSidebarCollapsed" 
-  class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" 
-  (click)="toggleSidebar()"
-></div>
+<div class="flex flex-col w-full p-6 transition-all"
+  [ngClass]="{'md:ml-[220px]': !isSidebarCollapsed, 'ml-0': isSidebarCollapsed}"
+>
+  <router-outlet></router-outlet> <!-- This will load the selected page -->
+</div>
+
+
+
 
 <div class="flex h-screen">
   <!-- Sidebar -->
@@ -47,6 +50,8 @@ import { RouterModule } from '@angular/router';
           *ngIf="!item.separator" 
           class="flex items-center p-2 cursor-pointer hover:bg-gray-100"
           (click)="toggleSidebar()"
+          [routerLink]="item.routerLink"
+          routerLinkActive="active"
         >
           <ng-container *ngIf="item.icon?.endsWith('.svg'); else primeIcon">
             <img [src]="item.icon" alt="{{ item.label }}" class="w-5 h-5 mr-2">
@@ -59,9 +64,8 @@ import { RouterModule } from '@angular/router';
         <li *ngIf="item.separator" class="border-t my-2"></li>
       </ng-container>
     </ul>
-  </div>
+  </div> 
 </div>
-
 
   <!-- Main Content -->
   <div class="flex flex-col w-full p-6 transition-all"
@@ -132,9 +136,6 @@ import { RouterModule } from '@angular/router';
     </div>
   </div>
 </div>
-
-
-
  
   `
 })
@@ -146,15 +147,15 @@ export class home {
   }
 
   model = [
-    { label: 'Dashboard', icon: 'assets/images/dashboard.svg', routerLink: ['/uikit/formlayout'] },
-    { label: 'Feed', icon: 'assets/images/feed.svg', routerLink: ['/uikit/input'] },
+    { label: 'Dashboard', icon: 'assets/images/dashboard.svg', routerLink: ['/home'] },
+    { label: 'Feed', icon: 'assets/images/feed.svg', routerLink: ['/homelayout/feed'] },
     { label: 'Inspiration', icon: 'assets/images/inspiration.svg', routerLink: ['/uikit/input'] },
     { label: 'Schedule', icon: 'assets/images/schedule.svg', routerLink: ['/uikit/input'] },
     { label: 'Integration', icon: 'assets/images/integration.svg', routerLink: ['/uikit/input'] },
     { label: 'Profile', icon: 'pi pi-fw pi-user', routerLink: ['/uikit/input'] },
-    { label: 'Usage & Payments', icon: 'assets/images/usage.svg', routerLink: ['/uikit/input'] },
+    { label: 'Usage & Payments', icon: 'assets/images/usage.svg', routerLink: ['/homelayout/usage'] },
     { label: 'Settings', icon: 'pi pi-cog', routerLink: ['/uikit/input'] },
-    { separator: true }, 
+    { separator: true },
     { label: 'Feedback', icon: 'assets/images/feedback.svg', routerLink: ['/uikit/profile'] },
     { label: 'Help', icon: 'assets/images/help.svg', routerLink: ['/uikit/profile'] },
     { label: 'Logout', icon: 'assets/images/logout.svg', routerLink: ['/logout'] }
@@ -168,19 +169,19 @@ export class home {
     { title: 'Browsed', count: '3.5K', description: 'Total posts browsed' },
   ];
 
-  panelcol=[
-    { title: 'Posted on LinkedIn', count: '57', description: '32% more than last week'},
-    { title: 'Scheduled Posts', count: '12', description: '32% more than last week'}
+  panelcol = [
+    { title: 'Posted on LinkedIn', count: '57', description: '32% more than last week' },
+    { title: 'Scheduled Posts', count: '12', description: '32% more than last week' }
   ];
   panelquestion = [
-    { 
+    {
       questions: [
         { question: 'Did you know that red pandas were given the name...', date: '24 Feb 2025, Monday 6 PM' },
         { question: 'Did you know that red pandas were given the name...', date: '24 Feb 2025, Monday 6 PM' },
         { question: 'Did you know that red pandas were given the name...', date: '24 Feb 2025, Monday 6 PM' }
       ]
     },
-    { 
+    {
       questions: [
         { question: 'Did you know that red pandas were given the name...', date: '24 Feb 2025, Monday 6 PM' },
         { question: 'Did you know that red pandas were given the name...', date: '24 Feb 2025, Monday 6 PM' },
@@ -188,10 +189,10 @@ export class home {
       ]
     }
   ];
-  
-  panelusage=[
-    {title: 'Current Credit Usage', count: '$0.53', description: 'Total usage since 1st Feb 2024'},
-    {title: 'Estimated Credit Usage', count: '$4.6', description: 'Estimated usage since for feb 24 month'},
-    {title: 'Credit Available', count: '$9.3K', description: 'Total Credit available'}
+
+  panelusage = [
+    { title: 'Current Credit Usage', count: '$0.53', description: 'Total usage since 1st Feb 2024' },
+    { title: 'Estimated Credit Usage', count: '$4.6', description: 'Estimated usage since for feb 24 month' },
+    { title: 'Credit Available', count: '$9.3K', description: 'Total Credit available' }
   ]
 }
