@@ -108,7 +108,7 @@ import { Product, ProductService } from '../service/product.service';
                 <p-button icon="pi pi-arrow-left" (click)="visibleRight = true" [style]="{ marginRight: '0.25em' }" />
                 <p-button icon="pi pi-arrow-down" (click)="visibleTop = true" [style]="{ marginRight: '0.25em' }" />
                 <p-button icon="pi pi-arrow-up" (click)="visibleBottom = true" [style]="{ marginRight: '0.25em' }" />
-                <p-button icon="pi pi-external-link" (click)="visibleFull = true" />
+                
             </div>
 
             <div class="card">
