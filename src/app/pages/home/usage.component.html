@@ -1,0 +1,136 @@
+<style>
+   @media screen and (max-width: 768px) {
+    .p-datatable-responsive {
+        display: block;
+        width: 100%;
+    }
+
+    .p-datatable-responsive table {
+        display: block;
+        width: 100%;
+    }
+
+    .p-datatable-responsive thead {
+        display: none; /* Hide table headers on small screens */
+    }
+
+    .p-datatable-responsive tbody tr {
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+    }
+
+    .p-datatable-responsive td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .p-datatable-responsive td:last-child {
+        border-bottom: none;
+    }
+
+    .p-datatable-responsive td[data-label]:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+    </style>
+<div class="flex flex-col w-full p-6 transition-all">
+    <!-- Usage Section -->
+    <div class="mt-6 flex justify-between items-center relative">
+        <span class="font-bold">Usage</span>
+        <div class="absolute right-1/2 transform translate-x-1/2 text-lg">&lt; June 2022 &gt;</div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-4">
+        <div *ngFor="let panel of panelusage.slice(0, 2)" class="p-2">
+            <div class="card p-3 shadow-md">
+                <div class="text-lg md:text-xl mb-2">{{ panel.title }}</div>
+                <label class="block text-2xl md:text-3xl">{{ panel.count }}</label>
+                <p class="m-0 text-sm">{{ panel.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-6 text-xl">
+        <span class="font-bold">Credit balance - Pay as you go</span>
+        <p class="text-xl">Your credit balance will be consumed as you use the application.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-4">
+        <div class="p-2">
+            <div class="card p-3 shadow-md">
+                <div class="text-lg md:text-xl mb-2">{{ panelusage[0].title }}</div>
+                <label class="block text-2xl md:text-3xl">{{ panelusage[0].count }}</label>
+                <p class="m-0 text-sm">{{ panelusage[0].description }}</p>
+            </div>
+            <div class="mt-4">
+                <button class="bg-blue-500 text-white px-6 py-3 text-lg rounded-lg shadow-md hover:bg-blue-600 transition w-full">+ Add to Credit Balance</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-6 flex justify-between items-center relative">
+        <span class="font-bold">Billing History</span>
+    </div><br>
+
+    <p-table
+    [value]="products"
+    dataKey="invoiceNo"
+    [expandedRowKeys]="expandedRows"
+    class="p-datatable p-datatable-sm p-datatable-responsive"
+    [responsiveLayout]="'stack'"
+>
+    <ng-template pTemplate="header">
+        <tr>
+            <th class="p-text-center">
+                <input type="checkbox" />
+            </th>
+            <th pSortableColumn="invoiceNo">Invoice No <p-sortIcon field="invoiceNo"></p-sortIcon></th>
+            <th pSortableColumn="price">Amount <p-sortIcon field="price"></p-sortIcon></th>
+            <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon></th>
+            <th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td class="p-text-center">
+                <input type="checkbox" [(ngModel)]="product.selected" />
+            </td>
+            <td data-label="Invoice No">{{ product.invoiceNo }}</td>
+            <td data-label="Amount">{{ product.price | currency: 'USD' }}</td>
+            <td data-label="Date">{{ product.date }}</td>
+            <td data-label="Status">
+                <button
+                    *ngIf="product.inventoryStatus?.toLowerCase() === 'success'"
+                    pButton
+                    class="p-button p-button-sm p-button-success"
+                >
+                    Success
+                </button>
+                <button
+                    *ngIf="product.inventoryStatus?.toLowerCase() === 'failed'"
+                    pButton
+                    class="p-button p-button-sm p-button-danger"
+                >
+                    Failed
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+
+</div>
+
+

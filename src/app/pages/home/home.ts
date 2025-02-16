@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { StatsWidget } from '../dashboard/components/statswidget';
-import { BestSellingWidget } from '../dashboard/components/bestsellingwidget';
-import { RecentSalesWidget } from '../dashboard/components/recentsaleswidget';
-import { NotificationsWidget } from '../dashboard/components/notificationswidget';
-import { RevenueStreamWidget } from '../dashboard/components/revenuestreamwidget';
 
 @Component({
     selector: 'app-home',
@@ -23,9 +18,9 @@ export class home {
     model = [
         { label: 'Dashboard', icon: 'assets/images/dashboard.svg', routerLink: ['/home'] },
         { label: 'Feed', icon: 'assets/images/feed.svg', routerLink: ['/homelayout/feed'] },
-        { label: 'Inspiration', icon: 'assets/images/inspiration.svg', routerLink: ['/uikit/input'] },
+        { label: 'Inspiration', icon: 'assets/images/inspiration.svg', routerLink: ['homelayout/feed'] },
         { label: 'Schedule', icon: 'assets/images/schedule.svg', routerLink: ['/uikit/input'] },
-        { label: 'Integration', icon: 'assets/images/integration.svg', routerLink: ['/uikit/input'] },
+        { label: 'Integration', icon: 'assets/images/integration.svg', routerLink: ['/homelayout/integration'] },
         { label: 'Profile', icon: 'pi pi-fw pi-user', routerLink: ['/uikit/input'] },
         { label: 'Usage & Payments', icon: 'assets/images/usage.svg', routerLink: ['/homelayout/usage'] },
         { label: 'Settings', icon: 'pi pi-cog', routerLink: ['/uikit/input'] },

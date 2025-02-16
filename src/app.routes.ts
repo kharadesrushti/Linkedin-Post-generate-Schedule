@@ -9,6 +9,7 @@ import { home } from './app/pages/home/home';
 import { Usage } from './app/pages/home/usage';
 import { HomeLayout } from './app/pages/home/homelayout';
 import { Feed } from './app/pages/home/feed';
+import { Integration } from './app/pages/home/integration';
 
 
 export const appRoutes: Routes = [
@@ -31,6 +32,8 @@ export const appRoutes: Routes = [
          
             {path:'home',component:home},// Default redirection
             { path: 'usage', component: Usage },
+            {path:'feed',component:Feed},
+            {path:'integration',component:Integration}
          
         ]
     },
