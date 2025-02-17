@@ -1,0 +1,65 @@
+<div class="grid-container">
+    <div *ngFor="let panel of panelcol" class="panel">
+        <div class="profile">
+            <!-- Avatar -->
+            <p-avatargroup class="avatar-group">
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large" shape="circle"></p-avatar>
+            </p-avatargroup>
+
+            <!-- Text Content -->
+            <div class="text-content">
+                <div class="title">{{ panel.title }}</div>
+                <div class="description">{{ panel.description }}</div>
+            </div>
+
+            <!-- Save Button at the End -->
+            <button class="save-button">Save</button>
+        </div>     
+    </div>
+</div>
+
+<div class="flex mt-8">
+    <div class="flex flex-col gap-6 w-full md:w-4/5 lg:w-5/6"> <!-- Updated width of card to allow more space -->
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Increased width for the container -->
+            <div class="flex flex-wrap gap-2 w-full md:w-2/3 lg:w-2/3"> <!-- Increased width for First Name -->
+                <label for="firstname2">First Name</label>
+                <input pInputText id="firstname2" type="text" placeholder="First name" class="w-full" />
+            </div>
+            <!-- Increased width for the container -->
+            <div class="flex flex-wrap gap-2 w-full md:w-2/3 lg:w-2/3"> <!-- Increased width for Last Name -->
+                <label for="lastname2">Last Name</label>
+                <input pInputText id="lastname2" type="text" placeholder="Last Name" class="w-full" />
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex flex-wrap gap-2 w-full">
+                <label for="email">Email</label>
+                <input pInputText id="email" type="text" placeholder="john.joe@gmail.com" class="w-full" />
+            </div>
+            <div class="flex flex-wrap gap-2 w-full">
+                <label for="bio">Bio</label>
+                <input pInputText id="bio" type="text" placeholder="Short bio of the user as per LinkedIn" class="w-full" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="col-span-full lg:col-span-6">
+    <div class="card custom-card">
+        <div class="profile-title">Change Profile Pic</div>
+        <p-fileupload name="demo[]" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced" url="https://www.primefaces.org/cdn/api/upload.php">
+            <ng-template #empty>
+                <div>Drag and drop files to here to upload.</div>
+            </ng-template>
+            <ng-template #content>
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                </ul>
+            </ng-template>
+        </p-fileupload>
+    </div>
+</div>

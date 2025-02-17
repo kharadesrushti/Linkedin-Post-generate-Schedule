@@ -1,48 +1,4 @@
-<style>
-   @media screen and (max-width: 768px) {
-    .p-datatable-responsive {
-        display: block;
-        width: 100%;
-    }
 
-    .p-datatable-responsive table {
-        display: block;
-        width: 100%;
-    }
-
-    .p-datatable-responsive thead {
-        display: none; /* Hide table headers on small screens */
-    }
-
-    .p-datatable-responsive tbody tr {
-        display: block;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 10px;
-        margin-bottom: 10px;
-        background-color: #fff;
-    }
-
-    .p-datatable-responsive td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .p-datatable-responsive td:last-child {
-        border-bottom: none;
-    }
-
-    .p-datatable-responsive td[data-label]:before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: #333;
-    }
-}
-
-    </style>
 <div class="flex flex-col w-full p-6 transition-all">
     <!-- Usage Section -->
     <div class="mt-6 flex justify-between items-center relative">
@@ -86,8 +42,7 @@
     [value]="products"
     dataKey="invoiceNo"
     [expandedRowKeys]="expandedRows"
-    class="p-datatable p-datatable-sm p-datatable-responsive"
-    [responsiveLayout]="'stack'"
+    class="p-datatable p-datatable-sm"
 >
     <ng-template pTemplate="header">
         <tr>
@@ -106,10 +61,10 @@
             <td class="p-text-center">
                 <input type="checkbox" [(ngModel)]="product.selected" />
             </td>
-            <td data-label="Invoice No">{{ product.invoiceNo }}</td>
-            <td data-label="Amount">{{ product.price | currency: 'USD' }}</td>
-            <td data-label="Date">{{ product.date }}</td>
-            <td data-label="Status">
+            <td>{{ product.invoiceNo }}</td>
+            <td>{{ product.price | currency: 'USD' }}</td>
+            <td>{{ product.date }}</td>
+            <td>
                 <button
                     *ngIf="product.inventoryStatus?.toLowerCase() === 'success'"
                     pButton
@@ -128,6 +83,7 @@
         </tr>
     </ng-template>
 </p-table>
+
 
 
 

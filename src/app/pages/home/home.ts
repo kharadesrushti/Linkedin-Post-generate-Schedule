@@ -19,7 +19,7 @@ export class home {
         { label: 'Dashboard', icon: 'assets/images/dashboard.svg', routerLink: ['/home'] },
         { label: 'Feed', icon: 'assets/images/feed.svg', routerLink: ['/homelayout/feed'] },
         { label: 'Inspiration', icon: 'assets/images/inspiration.svg', routerLink: ['homelayout/feed'] },
-        { label: 'Schedule', icon: 'assets/images/schedule.svg', routerLink: ['/uikit/input'] },
+        { label: 'Schedule', icon: 'assets/images/schedule.svg', routerLink: ['/homelayout/schedule'] },
         { label: 'Integration', icon: 'assets/images/integration.svg', routerLink: ['/homelayout/integration'] },
         { label: 'Profile', icon: 'pi pi-fw pi-user', routerLink: ['/uikit/input'] },
         { label: 'Usage & Payments', icon: 'assets/images/usage.svg', routerLink: ['/homelayout/usage'] },

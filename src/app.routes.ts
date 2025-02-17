@@ -6,10 +6,12 @@ import { Landing } from './app/pages/landing/landing';
 import { Notfound } from './app/pages/notfound/notfound';
 import { login } from './app/pages/login/login';
 import { home } from './app/pages/home/home';
-import { Usage } from './app/pages/home/usage';
 import { HomeLayout } from './app/pages/home/homelayout';
-import { Feed } from './app/pages/home/feed';
-import { Integration } from './app/pages/home/integration';
+import { Integration } from './app/pages/integration/integration';
+import { Usage } from './app/pages/usage/usage';
+import { Schedule } from './app/pages/schedule/schedule';
+import { Profile } from './app/pages/profile/profile';
+
 
 
 export const appRoutes: Routes = [
@@ -32,9 +34,9 @@ export const appRoutes: Routes = [
          
             {path:'home',component:home},// Default redirection
             { path: 'usage', component: Usage },
-            {path:'feed',component:Feed},
-            {path:'integration',component:Integration}
-         
+            {path:'integration',component:Integration},
+            {path:'schedule',component:Schedule},
+            {path:'profile',component:Profile}
         ]
     },
     

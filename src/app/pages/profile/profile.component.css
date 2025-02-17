@@ -1,0 +1,96 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.panel {
+    padding: 0.5rem;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align all content to the right */
+    gap: 1rem;
+    width: 100%;
+}
+
+.avatar-group {
+    flex-shrink: 0; /* Prevents avatar from resizing */
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.875rem;
+    color: gray;
+}
+.save-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    width: fit-content; /* Button fits its content */
+    margin-left: auto; /* Push button to the right side */
+    display: block; /* Ensure the button is block-level */
+}
+
+.save-button:hover {
+    background-color: #2563eb;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .save-button {
+        font-size: 0.9rem; /* Slightly smaller font size on mobile */
+        padding: 8px 14px; /* Reduce padding for smaller screens */
+        width: 30%; /* Full width on smaller screens */
+        margin: 10px 0; /* Provide margin for spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .save-button {
+        font-size: 0.8rem; /* Smaller font size on very small screens */
+        padding: 6px 12px; /* Even smaller padding */
+        width: 30%; 
+    }
+}
+/* Styling for the card */
+.custom-card {
+    width: 410px;
+    height: 180px;
+    padding: 1rem; /* Adjust the padding as needed */
+    background-color: #ffffff; /* Default background color */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+}
+
+/* Styling for the title */
+.profile-title {
+    font-weight: 600; /* Equivalent to font-semibold */
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    margin-bottom: 1rem; /* Equivalent to mb-4 */
+}
+
