@@ -10,12 +10,13 @@ import { FluidModule } from 'primeng/fluid';
 import { TextareaModule } from 'primeng/textarea';
 import { MessageService } from 'primeng/api';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ButtonModule } from 'primeng/button';
 
 
 @Component({
     selector: 'profile',
     standalone: true,
-    imports: [CommonModule,RouterModule, AvatarGroupModule,AvatarModule,SelectModule, FormsModule,InputTextModule,FluidModule, TextareaModule,FileUploadModule],
+    imports: [CommonModule,RouterModule, AvatarGroupModule,AvatarModule,SelectModule,ButtonModule, FormsModule,InputTextModule,FluidModule, TextareaModule,FileUploadModule],
     templateUrl:'./profile.component.html' ,
     styleUrls: ['./profile.component.css'],
     providers: [MessageService]

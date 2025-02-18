@@ -3,7 +3,7 @@
         <div class="profile">
             <!-- Avatar -->
             <p-avatargroup class="avatar-group">
-                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="large" shape="circle"></p-avatar>
+                <p-avatar image="https://picsum.photos/200" size="large" shape="circle"></p-avatar>
             </p-avatargroup>
 
             <!-- Text Content -->
@@ -13,7 +13,13 @@
             </div>
 
             <!-- Save Button at the End -->
-            <button class="save-button">Save</button>
+            <p-button label="Save" severity="info" raised class="custom-save-button">
+                <ng-template pTemplate="icon">
+                    <i class="pi pi-check"></i> 
+                </ng-template>
+            </p-button>
+            
+
         </div>     
     </div>
 </div>
@@ -48,18 +54,17 @@
 
 <br>
 
-<div class="col-span-full lg:col-span-6">
-    <div class="card custom-card">
-        <div class="profile-title">Change Profile Pic</div>
-        <p-fileupload name="demo[]" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced" url="https://www.primefaces.org/cdn/api/upload.php">
-            <ng-template #empty>
-                <div>Drag and drop files to here to upload.</div>
-            </ng-template>
-            <ng-template #content>
-                <ul *ngIf="uploadedFiles.length">
-                    <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
-                </ul>
-            </ng-template>
-        </p-fileupload>
-    </div>
+<div class="custom-card move-left">
+    <div class="profile-title">Change Profile Pic</div>
+    <p-fileupload name="demo[]" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced" url="https://www.primefaces.org/cdn/api/upload.php">
+        <ng-template #empty>
+            <div>Drag and drop files to here to upload.</div>
+        </ng-template>
+        <ng-template #content>
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+            </ul>
+        </ng-template>
+    </p-fileupload>
 </div>
+

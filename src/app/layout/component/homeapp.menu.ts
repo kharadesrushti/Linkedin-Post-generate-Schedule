@@ -28,7 +28,7 @@ export class HomeAppMenu {
                     { label: 'Dashboard', icon: 'assets/images/dashboard.svg', routerLink: ['/homelayout/home'] },
                     { label: 'Feed', icon: '../assets/images/feed.svg', routerLink: ['/homelayout/feed'] },
                     { label: 'Inspriration', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input'] },
-                    { label: 'Schedule', icon: './assets/images/schedule.svg', class: 'rotated-icon', routerLink: ['/homelayout/schedule'] },
+                    { label: 'Scheduled', icon: './assets/images/schedule.svg', class: 'rotated-icon', routerLink: ['/homelayout/schedule'] },
                     { label: 'Integration', icon: '..assets/images/integration.svg', routerLink: ['/homelayout/integration'] },
                     { label: 'Profile', icon: 'pi pi-fw pi-list', routerLink: ['/homelayout/profile'] },
                     { label: 'Usage & Payments', icon: 'pi pi-fw pi-share-alt', routerLink: ['/homelayout/usage'] },

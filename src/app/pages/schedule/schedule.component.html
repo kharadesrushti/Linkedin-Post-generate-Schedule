@@ -1,22 +1,51 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 mt-4">
-    <div *ngFor="let panel of panelcol" class="p-2">
-        <div class="card p-3 shadow-md flex flex-col items-center text-center">
-           
+<div class="container">
+    <!-- Top Content: Icon, Title, and Subtext -->
+    <div class="top-content">
+        <div class="icon">
+            <img src="assets/images/unicornicon.svg" alt="login" />
+            <h5>UI Unicorn</h5>
+        </div>
+        <h6 class="subtext">Automate your LinkedIn Content Generation</h6>
+    </div>
 
-            <!-- Title -->
-            <div class="text-base mb-2">{{ panel.title }}</div>
-            
+    <!-- Bottom Content: Everything else -->
+    <div class="bottom-content">
+        <!-- Quick Start Text -->
+        <div class="quick-start-text">
+            <h6>Quick start</h6>
+        </div>
 
-            <!-- LinkedIn Button -->
-            <div class="mt-4">
-                <button class="w-full bg-blue-500 text-white px-6 py-3 text-lg rounded-lg shadow-md hover:bg-blue-600 transition flex items-center justify-center gap-2">
+        <!-- Grid Panels -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+            <div *ngFor="let panel of panelcol" class="p-2">
+                <div class="card shadow-md">
+                    <div class="text-base">{{ panel.title }}</div>
+                </div>
+            </div>
+        </div>
+        <br><br>
 
+        <!-- Textarea -->
+        <textarea pTextarea id="address" rows="5" class="full-width-textarea" 
+             placeholder="What is the Content you want to create LinkedIn content for? Or suggest me a topic">
+        </textarea>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.5c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.5h-3v-5.5c0-1.378-.622-2.5-2-2.5s-2 .949-2 2.5v5.5h-3v-10h3v1.5c.622-.884 1.562-1.5 3-1.5 2.209 0 4 1.791 4 4v6z"/>
-                    </svg>
-                    Edit Idea
-                </button>
+    
+
+        <!-- Buttons Row -->
+        <div class="buttons-row">
+            <div class="left-buttons-bottom">
+                <p-button label="My Preferences" severity="secondary" class="rounded-button orange-button" outlined></p-button>
+                <p-button label="Image" severity="secondary" class="rounded-button" outlined></p-button>
+                <p-button label="Carousal" class="rounded-button" severity="secondary" outlined></p-button>
+                <div class="flex flex-wrap gap-2 w-full">
+                    <p-select id="state" [(ngModel)]="dropdownItem" [options]="dropdownItems" 
+                        optionLabel="name" placeholder="Parsona" class="w-full">
+                    </p-select>
+                </div>
+            </div>
+            <div class="right-buttons-bottom">
+                <p-button label="Generate Posts" class="rounded-button"></p-button>
             </div>
         </div>
     </div>
