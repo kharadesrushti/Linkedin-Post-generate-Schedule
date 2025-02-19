@@ -17,35 +17,42 @@
 
         <!-- Grid Panels -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
-            <div *ngFor="let panel of panelcol" class="p-2">
-                <div class="card shadow-md">
-                    <div class="text-base">{{ panel.title }}</div>
+            <div class="p-2" *ngFor="let panel of panelcol">
+                <div class="card shadow-md p-2">
+                    <div class="flex items-center space-x-2">
+                        <img src="assets/images/feedback.svg" alt="feedback" class="panel-icon">
+                        <span class="title-text">{{ panel.title | slice:0:85 }}</span> 
+                    </div>
+                    <div class="description-text">{{ panel.title | slice:85 }}</div>
                 </div>
             </div>
         </div>
+        
         <br><br>
 
-        <!-- Textarea -->
-        <textarea pTextarea id="address" rows="5" class="full-width-textarea" 
-             placeholder="What is the Content you want to create LinkedIn content for? Or suggest me a topic">
-        </textarea>
-
+        <!-- Fixed Bottom Container -->
+        <div class="fixed-bottom-container">
+            <!-- Textarea -->
+                <textarea pTextarea id="address" rows="4" class="full-width-textarea" placeholder="What is the Content you want to create LinkedIn content for? Or suggest me a topic"></textarea>
     
-
-        <!-- Buttons Row -->
-        <div class="buttons-row">
-            <div class="left-buttons-bottom">
-                <p-button label="My Preferences" severity="secondary" class="rounded-button orange-button" outlined></p-button>
-                <p-button label="Image" severity="secondary" class="rounded-button" outlined></p-button>
-                <p-button label="Carousal" class="rounded-button" severity="secondary" outlined></p-button>
-                <div class="flex flex-wrap gap-2 w-full">
-                    <p-select id="state" [(ngModel)]="dropdownItem" [options]="dropdownItems" 
-                        optionLabel="name" placeholder="Parsona" class="w-full">
-                    </p-select>
+            <!-- Buttons Row -->
+            <div class="buttons-row">
+                <div class="left-buttons-bottom">
+                    <button class="rounded-button orange-button">My Preferences</button>
+                    <button class="rounded-button">Image</button>
+                    <button class="rounded-button">Carousal</button>
+                    <!-- <select id="state" [(ngModel)]="dropdownItem" class="w-full" > -->
+                        <!-- <option *ngFor="let item of dropdownItems" [value]="item" placeholder="Select One">{{ item.name }}</option> -->
+                    <!-- </select> -->
+                    <p-select id="state" [(ngModel)]="dropdownItem" [options]="dropdownItems" optionLabel="name" placeholder="Parsona" class="p-dropdown w-full"></p-select>
                 </div>
-            </div>
-            <div class="right-buttons-bottom">
-                <p-button label="Generate Posts" class="rounded-button"></p-button>
+                <div class="right-buttons-bottom">
+                    <img src="assets/images/attach.svg" alt="attachment" class="attach-icon" />
+                    <button class="rounded-button generate-button">
+                        <img src="assets/images/generate.svg" alt="generated logo" class="button-icon" />
+                        <span>Generate Posts</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

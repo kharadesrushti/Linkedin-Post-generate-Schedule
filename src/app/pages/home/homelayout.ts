@@ -5,14 +5,13 @@ import { filter, Subscription } from 'rxjs';
 
 import { LayoutService } from '../../layout/service/layout.service';
 
-import { AppFooter } from '../../layout/component/app.footer';
 import { AppTopbar } from '../../layout/component/app.topbar';
 import { HomeAppSidebar } from '../../layout/component/homeapp.sidebar';
 
 @Component({
     selector: 'home-layout',
     standalone: true,
-    imports: [CommonModule, AppTopbar, HomeAppSidebar, RouterModule, AppFooter],
+    imports: [CommonModule, AppTopbar, HomeAppSidebar, RouterModule],
     template: `<div class="layout-wrapper" [ngClass]="containerClass">
         <app-topbar></app-topbar>
         <home-app-sidebar></home-app-sidebar>
@@ -20,7 +19,6 @@ import { HomeAppSidebar } from '../../layout/component/homeapp.sidebar';
             <div class="layout-main">
                 <router-outlet></router-outlet>
             </div>
-            <app-footer></app-footer>
         </div>
         <div class="layout-mask animate-fadein"></div>
     </div> `
